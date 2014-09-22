@@ -23,10 +23,23 @@ describe('event-accessor()', function() {
   it('should only expose emitter functions', function() {
     var emitter = proxy(store('test'));
 
+    emitter.addListener.should.be.of.type('function');
     emitter.on.should.be.of.type('function');
-    emitter.emit.should.be.of.type('function');
+    emitter.once.should.be.of.type('function');
+    emitter.removeListener.should.be.of.type('function');
     emitter.removeAllListeners.should.be.type('function');
-
-    Object.keys(emitter).should.eql(['on', 'emit', 'removeAllListeners']);
+    emitter.setMaxListeners.should.be.of.type('function');
+    emitter.listeners.should.be.of.type('function');
+    emitter.emit.should.be.of.type('function');
+    Object.keys(emitter).should.eql([
+      'addListener',
+      'on',
+      'once',
+      'removeListener',
+      'removeAllListeners',
+      'setMaxListeners',
+      'listeners',
+      'emit'
+    ]);
   });
 });

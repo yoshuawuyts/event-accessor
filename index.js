@@ -15,16 +15,36 @@ module.exports = function(emitter) {
   assert(emitter.on, 'Emitter should have function \'on\'');
 
   return {
+    get addListener() {
+      return emitter.addListener;
+    },
+
     get on() {
       return emitter.on;
     },
 
-    get emit() {
-      return emitter.emit;
+    get once() {
+      return emitter.once;
+    },
+
+    get removeListener() {
+      return emitter.removeListener;
     },
 
     get removeAllListeners() {
       return emitter.removeAllListeners;
+    },
+
+    get setMaxListeners() {
+      return emitter.setMaxListeners;
+    },
+
+    get listeners() {
+      return emitter.listeners;
+    },
+
+    get emit() {
+      return emitter.emit;
     }
   }
 }

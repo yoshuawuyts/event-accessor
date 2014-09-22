@@ -14,10 +14,10 @@ var proxy = require('./index');
 describe('event-accessor()', function() {
   it('should assert argument types', function() {
     proxy.bind(proxy, 123)
-      .should.throw('Emitter should be a function');
+      .should.throw('Emitter should be an object');
 
     proxy.bind(proxy, {})
-      .should.not.throw('Emitter should be a function');
+      .should.not.throw('Emitter should be an object');
   });
 
   it('should only expose emitter functions', function() {

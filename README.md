@@ -23,7 +23,7 @@ var proxyEmitter = proxy(emitter);
 ## API
 #### event-accessor()
 Wrap an event emmitter inside a event-accessor function, allowing only built-in
-methods to be exposed. Exposes `.on`, `.removeListeners` and `.emit`.
+methods to be exposed. Exposes [all emitter functions](http://nodejs.org/api/events.html).
 ```js
 var proxy = require('event-accessor');
 var Emitter = require('events').EventEmitter;
